@@ -1,0 +1,30 @@
+# Gradle & Compilation Artifacts
+.gradle/
+build/
+*/build/
+gradle-app.setting
+
+# Local Configuration (Never commit your personal local paths)
+local.properties
+
+# Android Studio / IDEA Files
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Compiled Executables & Bundles
+*.apk
+*.ap_
+*.aab
+*.dex
+*.class
+
+# Security & Signing Files (Keystores)
+*.jks
+*.keystore
+keystore.properties
+
+# OS-Specific Hidden Files
+.DS_Store
+Thumbs.db
