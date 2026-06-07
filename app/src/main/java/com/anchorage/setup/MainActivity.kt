@@ -14,7 +14,6 @@ import android.os.Environment
 import android.provider.Settings
 import android.view.Gravity
 import android.view.View
-import android.view.ViewGroup
 import android.widget.*
 import java.io.File
 import android.util.Base64
@@ -33,8 +32,6 @@ class MainActivity : Activity() {
     private lateinit var prefs: SharedPreferences
 
     private val cryptoKey = "AnchorageShellEcosystemKeyShared"
-    
-    // Dynamic UI State
     private var isDarkMode = false
     private var currentThemeColor = Color.parseColor("#455A64")
     private var bgColor = 0
@@ -55,27 +52,19 @@ class MainActivity : Activity() {
     }
 
     private fun createRoundedBg(color: Int, radius: Float): GradientDrawable {
-        return GradientDrawable().apply {
-            setColor(color)
-            cornerRadius = radius
-        }
+        return GradientDrawable().apply { setColor(color); cornerRadius = radius }
     }
 
     private fun createCircleBg(color: Int): GradientDrawable {
-        return GradientDrawable().apply {
-            shape = GradientDrawable.OVAL
-            setColor(color)
-        }
+        return GradientDrawable().apply { shape = GradientDrawable.OVAL; setColor(color) }
     }
 
     private fun resolveDynamicColors() {
         val baseBg = if (isDarkMode) Color.parseColor("#121212") else Color.parseColor("#F4F6F8")
         val baseCard = if (isDarkMode) Color.parseColor("#1E1E1E") else Color.WHITE
         
-        // Tints the background slightly with the active theme color for a cohesive blend
         bgColor = blendColors(baseBg, currentThemeColor, if (isDarkMode) 0.15f else 0.05f)
         cardColor = blendColors(baseCard, currentThemeColor, if (isDarkMode) 0.10f else 0.03f)
-        
         textColorMain = if (isDarkMode) Color.WHITE else Color.BLACK
         textColorSub = if (isDarkMode) Color.parseColor("#B0B0B0") else Color.parseColor("#555555")
     }
@@ -103,6 +92,7 @@ class MainActivity : Activity() {
         
         setContentView(mainContainer)
     }
+
     override fun onResume() {
         super.onResume()
         checkPermissionsAndState()
@@ -115,7 +105,6 @@ class MainActivity : Activity() {
             setPadding(48, 64, 48, 48)
         }
 
-        // --- TOP HEADER ---
         val headerBar = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
             layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
@@ -154,7 +143,6 @@ class MainActivity : Activity() {
         headerBar.addView(titleView)
         homeView.addView(headerBar)
 
-        // --- STATUS CARD ---
         val statusCard = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             background = createRoundedBg(cardColor, 32f)
@@ -183,7 +171,6 @@ class MainActivity : Activity() {
         statusCard.addView(statusTextBody)
         homeView.addView(statusCard)
 
-        // --- ACTION BUTTON ---
         actionButton = Button(this).apply {
             text = "INITIALIZE ENGINE"
             textSize = 16f
@@ -196,7 +183,6 @@ class MainActivity : Activity() {
         }
         homeView.addView(actionButton)
 
-        // --- DARK MODE & THEME SETTINGS ---
         val settingsControls = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
@@ -297,7 +283,6 @@ class MainActivity : Activity() {
         menuPanel.addView(anchorIcon)
         menuPanel.addView(menuTitle)
 
-        // Casual Variables Button (No longer a huge highlighted block)
         val viewVarsBtn = TextView(this).apply {
             text = "View Global Variables"
             textSize = 16f
@@ -314,7 +299,7 @@ class MainActivity : Activity() {
 
         val dimBackground = View(this).apply {
             layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT)
-            setBackgroundColor(Color.parseColor("#B3000000")) // 70% opacity black
+            setBackgroundColor(Color.parseColor("#B3000000"))
             setOnClickListener { closeSidebar() }
         }
 
@@ -367,6 +352,7 @@ class MainActivity : Activity() {
         scrollPane.addView(varListContainer)
         variablesView.addView(scrollPane)
     }
+
     private fun openSidebar() { sidebarOverlay.visibility = View.VISIBLE }
     private fun closeSidebar() { sidebarOverlay.visibility = View.GONE }
     private fun openVariablesPage() {
@@ -468,6 +454,7 @@ class MainActivity : Activity() {
             for (line in lines) {
                 if (line.contains("=")) {
                     val parts = line.split("=", limit = 2)
+                    // Skip rendering corrupted/garbled lines caused by the previous bug
                     
                     val card = LinearLayout(this).apply {
                         orientation = LinearLayout.VERTICAL
@@ -497,7 +484,7 @@ class MainActivity : Activity() {
                 }
             }
         } catch (e: Exception) {
-            val errTxt = TextView(this).apply { text = "Decryption Error"; setTextColor(Color.RED) }
+            val errTxt = TextView(this).apply { text = "Decryption Error. Please hit Refresh Core Bootstrap to reset the corrupted file."; setTextColor(Color.RED) }
             varListContainer.addView(errTxt)
         }
     }
