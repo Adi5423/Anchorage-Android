@@ -39,7 +39,7 @@ This isolation results in duplicate installations, wasted storage, and a total l
 By establishing a shared environment array on public storage and providing a native Android setup utility alongside a globally accessible Python CLI, Anchorage allows any terminal, compiler, or IDE to securely discover, reuse, and execute shared toolchains exactly once.
 
 ---
-##Open the pdf:
+## Open the Manifesto PDF :
 
 [Achorage_Architecture_Manifesto.pdf](Achorage_Architecture_Manifesto.pdf)
 
