@@ -78,7 +78,7 @@ The Anchorage Android app is responsible for establishing the physical storage a
 
 1. Clone this repository to your local Android terminal environment.
    ```bash
-   git clone [https://github.com/Adi5423/AnchorageSetup.git](https://github.com/Adi5423/AnchorageSetup.git)
+   git clone https://github.com/Adi5423/AnchorageSetup.git
    cd AnchorageSetup
    ```
 2. Execute the Gradle build wrapper natively:
