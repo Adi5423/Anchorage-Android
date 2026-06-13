@@ -170,7 +170,7 @@ The current operational build successfully bridges the environment mapping and C
 
 **Aditya Tiwari**
 - 💼 LinkedIn: [Aditya Tiwari](https://www.linkedin.com/in/adii5423/)
-- 🐱 GitHub: [GitHub Profile](https://github.com/adi5423)
+- 🐱 GitHub: [@Adi5423](https://github.com/adi5423)
 - 📧 Email: adii54ti23@gmail.com
 - 🐦 Twitter: [@Adiii5423](https://twitter.com/Adiii5423)
 - 📧 Instagram: [@Adii5423.exe](https://instagram.com/Adii5423_)
