@@ -41,7 +41,8 @@ By establishing a shared environment array on public storage and providing a nat
 ---
 ## Open the Manifesto PDF :
 
-[Anchorage_Architecture_Manifesto.pdf](Anchorage_Architecture_Manifesto.pdf)
+[Anchorage_Architecture_Manifesto.pdf](Anchorage_Architecture_Manifesto.pdf) ,
+[About_Anchorage.pdf](About_Anchorage.pdf)
 
 ---
 
