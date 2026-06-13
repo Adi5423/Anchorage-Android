@@ -39,6 +39,11 @@ This isolation results in duplicate installations, wasted storage, and a total l
 By establishing a shared environment array on public storage and providing a native Android setup utility alongside a globally accessible Python CLI, Anchorage allows any terminal, compiler, or IDE to securely discover, reuse, and execute shared toolchains exactly once.
 
 ---
+##Open the pdf:
+
+[Achorage_Architecture_Manifesto.pdf](Achorage_Architecture_Manifesto.pdf)
+
+---
 
 ## Features & Capabilities
 
@@ -178,7 +183,5 @@ If you would like to contribute to this project, feel free to fork the repositor
 ## License
 
 This repository includes an **MIT License**. See [`LICENSE.txt`](LICENSE.txt) for details..
-
-Licensed under the **MIT License**. [`LICENSE.txt`](LICENSE.txt).
 
 ---
